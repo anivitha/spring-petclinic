@@ -11,7 +11,7 @@ node('ansible'){
        sh 'docker build -t suresha10/spring-petclinic:2.0.0 .'
    }
    stage('Push Docker Image'){
-     withCredentials([string(credentialsId: 'docker-pwd', variable: 'dockerHubPwd')]) {
+     withCredentials([usernameColonPassword(credentialsId: 'dockerHubPwd', variable: 'dockerHubPwd')]) {
         sh "docker login -u suresh10 -p ${dockerHubPwd}"
      }
      sh 'docker push suresh10/spring-petclinic:2.0.0'
