@@ -1,4 +1,4 @@
-node('ansible'){
+node{
    stage('SCM Checkout'){    
        git credentialsId: 'git-creds', url: 'https://github.com/kishan428/spring-petclinic.git'  
    }
