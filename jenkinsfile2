@@ -17,7 +17,7 @@ node{
 sh 'docker push suresha10/spring-petclinic:2.0.0'
 }
    stage('deploy k8s pods'){
-      sh 'cp /root/workspace/ci-cd-docker-kubernetes/spring-deployment.yaml  /root/spring-deployment.yaml'
+      sh 'cp /root/.jenkins/workspace/jenkins-pipeline/spring-deployment.yaml  /root/spring-deployment.yaml'
       sh 'cd /root'
       sh 'kubectl apply -f spring-deployment.yaml'
    }
