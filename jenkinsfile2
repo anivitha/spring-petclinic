@@ -8,13 +8,13 @@ node('ansible'){
      sh "${mvnCMD} clean package"
    }
    stage('Build Docker Image'){
-       sh 'docker build -t kishan428/spring-petclinic:2.0.0 .'
+       sh 'docker build -t suresha10/spring-petclinic:2.0.0 .'
    }
    stage('Push Docker Image'){
      withCredentials([string(credentialsId: 'docker-pwd', variable: 'dockerHubPwd')]) {
-        sh "docker login -u kishan428 -p ${dockerHubPwd}"
+        sh "docker login -u suresh10 -p ${dockerHubPwd}"
      }
-     sh 'docker push kishan428/spring-petclinic:2.0.0'
+     sh 'docker push suresh10/spring-petclinic:2.0.0'
    }
    stage('deploy k8s pods'){
       sh 'cp /root/workspace/ci-cd-docker-kubernetes/spring-deployment.yaml  /root/spring-deployment.yaml'
