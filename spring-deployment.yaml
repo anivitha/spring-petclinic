@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: spring-petclinic
-        image: kishan428/spring-petclinic:2.0.0
+        image: suresha10/spring-petclinic:2.0.0
         ports:
         - containerPort: 8082		
 ---		
@@ -27,7 +27,7 @@ metadata:
 spec:
   selector:
     app: spring
-  type: LoadBalancer
+  type: NodePort
   ports:
     - protocol: TCP
       port: 8082
